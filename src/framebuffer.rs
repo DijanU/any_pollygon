@@ -26,7 +26,8 @@ impl Framebuffer {
 
     pub fn set_pixel(&mut self, x: i32, y: i32) {
         if x >= 0 && x < self.width && y >= 0 && y < self.height {
-            self.color_buffer.draw_pixel(x, y, self.current_color);
+        let flipped_y = self.height - 1 - y;
+        self.color_buffer.draw_pixel(x, flipped_y, self.current_color);
         }
     }
 
